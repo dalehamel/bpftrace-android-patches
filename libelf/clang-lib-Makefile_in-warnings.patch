@@ -1,0 +1,32 @@
+Index: src/elfutils-0.176/lib/Makefile.in
+===================================================================
+--- src.orig/elfutils-0.176/lib/Makefile.in
++++ src/elfutils-0.176/lib/Makefile.in
+@@ -330,9 +330,9 @@ ARFLAGS = cr
+ 
+ # Use strict fallthrough. Only __attribute__((fallthrough)) will prevent the
+ # warning
+-@HAVE_IMPLICIT_FALLTHROUGH_WARNING_TRUE@IMPLICIT_FALLTHROUGH_WARNING = -Wimplicit-fallthrough=5
++@HAVE_IMPLICIT_FALLTHROUGH_WARNING_TRUE@IMPLICIT_FALLTHROUGH_WARNING = -Wimplicit-fallthrough
+ AM_CFLAGS = -std=gnu99 -Wall -Wshadow -Wformat=2 \
+-	-Wold-style-definition -Wstrict-prototypes -Wtrampolines \
++	-Wold-style-definition -Wstrict-prototypes \
+ 	$(LOGICAL_OP_WARNING) $(DUPLICATED_COND_WARNING) \
+ 	$(NULL_DEREFERENCE_WARNING) $(IMPLICIT_FALLTHROUGH_WARNING) \
+ 	$(if $($(*F)_no_Werror),,-Werror) $(if \
+Index: src/embedded_libelf/libelf/Makefile.in
+===================================================================
+--- src.orig/embedded_libelf/libelf/Makefile.in
++++ src/embedded_libelf/libelf/Makefile.in
+@@ -493,9 +493,9 @@ ARFLAGS = cr
+ 
+ # Use strict fallthrough. Only __attribute__((fallthrough)) will prevent the
+ # warning
+-@HAVE_IMPLICIT_FALLTHROUGH_WARNING_TRUE@IMPLICIT_FALLTHROUGH_WARNING = -Wimplicit-fallthrough=5
++@HAVE_IMPLICIT_FALLTHROUGH_WARNING_TRUE@IMPLICIT_FALLTHROUGH_WARNING = -Wimplicit-fallthrough
+ AM_CFLAGS = -std=gnu99 -Wall -Wshadow -Wformat=2 \
+-	-Wold-style-definition -Wstrict-prototypes -Wtrampolines \
++	-Wold-style-definition -Wstrict-prototypes  \
+ 	$(LOGICAL_OP_WARNING) $(DUPLICATED_COND_WARNING) \
+ 	$(NULL_DEREFERENCE_WARNING) $(IMPLICIT_FALLTHROUGH_WARNING) \
+ 	$(if $($(*F)_no_Werror),,-Werror) $(if \

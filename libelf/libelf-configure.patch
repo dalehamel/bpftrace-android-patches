@@ -1,0 +1,58 @@
+--- embedded_libelf.orig/configure      2020-01-08 16:27:19.928828790 +0000
++++ embedded_libelf/configure   2020-01-07 22:00:32.461225958 +0000
+@@ -5007,53 +5007,6 @@
+ fi
+
+
+-# We use -std=gnu99 but have explicit checks for some language constructs
+-# and GNU extensions since some compilers claim GNU99 support, but don't
+-# really support all language extensions. In particular we need
+-# Mixed Declarations and Code
+-# https://gcc.gnu.org/onlinedocs/gcc/Mixed-Declarations.html
+-# Nested Functions
+-# https://gcc.gnu.org/onlinedocs/gcc/Nested-Functions.html
+-# Arrays of Variable Length
+-# https://gcc.gnu.org/onlinedocs/gcc/Variable-Length.html
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for gcc with GNU99 support" >&5
+-$as_echo_n "checking for gcc with GNU99 support... " >&6; }
+-if ${ac_cv_c99+:} false; then :
+-  $as_echo_n "(cached) " >&6
+-else
+-  old_CFLAGS="$CFLAGS"
+-CFLAGS="$CFLAGS -std=gnu99"
+-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+-/* end confdefs.h.  */
+-int foo (int a)
+-{
+-  for (int i = 0; i < a; ++i) if (i % 4) break; int s = a; return s;
+-}
+-
+-double bar (double a, double b)
+-{
+-  double square (double z) { return z * z; }
+-  return square (a) + square (b);
+-}
+-
+-void baz (int n)
+-{
+-  struct S { int x[n]; };
+-}
+-_ACEOF
+-if ac_fn_c_try_compile "$LINENO"; then :
+-  ac_cv_c99=yes
+-else
+-  ac_cv_c99=no
+-fi
+-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+-CFLAGS="$old_CFLAGS"
+-fi
+-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_c99" >&5
+-$as_echo "$ac_cv_c99" >&6; }
+-if test "x$ac_cv_c99" != xyes; then :
+-  as_fn_error $? "gcc with GNU99 support required" "$LINENO" 5
+-fi
+
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether gcc supports __attribute__((visibility()))" >&5
+ $as_echo_n "checking whether gcc supports __attribute__((visibility()))... " >&6; }
+ 
+ 

@@ -6,3 +6,17 @@ Many of these patches are based on https://github.com/michalgr/bpftrace/tree/bui
 Some patches were added to this set to work-around issues not outlined there. I'll try and credit michal's thorough work here where I can, as he lead the exploration and had I not known it was possible to build bpftrace for android, I likely would have given up while developing this patchset.
 
 The libelf patches are my own, and my major contribution is to update his work, and codify it in CMake, which is the build system bpftrace already uses.
+
+# Adding patches
+
+Quilt is an easy way to add patches, and is how they are applied to bpftrace:
+
+```
+quilt new my-awesome.patch
+
+quilt edit some_file.txt
+
+quilt refresh
+```
+
+Then commit the resulting file to this repo.
